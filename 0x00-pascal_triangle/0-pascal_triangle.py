@@ -1,27 +1,29 @@
 #!/usr/bin/python3
+"""
+    Pascal's Triangle
+"""
 
-# Importing math module
-import math
 
 def pascal_triangle(n):
-    """ Representing the pascal's triangle of n. """
-    # Define matrix
-    matrix = []
+    """
+    returns a list of lists of integers representing the Pascal’s triangle of n
+    """
+    if n <= 0:
+        return []
 
-    # n stands for number of rows so we will iterate n times
-    for x in range(n):
-        # Define rows
-        rows = []
+    pascal_triangle = [0] * n
 
-        for y in range(x + 1):
-            # Find the combination of x and y
-            result = math.comb(x, y)
+    for i in range(n):
+        new_row = [0] * (i+1)
+        new_row[0] = 1
+        new_row[len(new_row) - 1] = 1
 
-            # Append result to inner list
-            rows.append(result)
+        for j in range(1, i):
+            if j > 0 and j < len(new_row):
+                a = pascal_triangle[i - 1][j]
+                b = pascal_triangle[i - 1][j - 1]
+                new_row[j] = a + b
 
-        # Append inner list to matrix
-        matrix.append(rows)
+        pascal_triangle[i] = new_row
 
-    # Return list of list
-    return matrix
+    return pascal_triangle
