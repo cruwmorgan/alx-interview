@@ -3,7 +3,7 @@
     script that determine the fewest number of coins needed to meet a
     given amount total.
 """
-from typing import List
+from typing import List, Union
 
 
 def makeChange(coins: List[int], total: int) -> int:
