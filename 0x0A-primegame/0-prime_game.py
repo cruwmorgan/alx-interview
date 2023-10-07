@@ -2,6 +2,8 @@
 """
     script to find the winner pf a Prime game
 """
+
+
 def primeNumbers(n):
     """ function to gcheck for prime number
     Args:
@@ -17,6 +19,7 @@ def primeNumbers(n):
             for i in range(prime, n + 1, prime):
                 filtered[i] = False
     return primeNos
+
 
 def isWinner(x, nums):
     """ function to determine the winner
